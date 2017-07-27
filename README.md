@@ -5,13 +5,19 @@ An Ansible playbook I use to set up my Linux laptop.  It supports Fedora and Ubu
 ### How to use
 
 After installation of Fedora or Ubuntu, install ansible and git:
-  `sudo yum install ansible git`
+
+  ```sudo yum install ansible git```
+
 or
-  `sudo apt install ansible git`
+
+  ```sudo apt install ansible git```
 
 Clone this repo
 
 Change directory to the newly-cloned repository, and run the following command:
-  `ansible-playbook -i environments/fedora/hosts -K site.yml -vv`
+
+  ```ansible-playbook -i environments/fedora/hosts -K site.yml -vv```
+
 or
-  `ansible-playbook -i environments/ubuntu/hosts -K site.yml -vv`
+
+  ```ansible-playbook -i environments/ubuntu/hosts -K site.yml -vv```
