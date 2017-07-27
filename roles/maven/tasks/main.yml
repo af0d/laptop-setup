@@ -1,0 +1,37 @@
+---
+# roles/maven/tasks/main.yml
+
+- name: fetch maven
+  get_url:
+    url: "http://www-us.apache.org/dist/maven/maven-3/{{ maven_version }}/binaries/apache-maven-{{ maven_version }}-bin.tar.gz"
+    dest: /tmp/
+#  creates: "/tmp/apache-maven-{{ maven_version }}-bin.tar.gz"
+
+- name: unpack maven
+  unarchive:
+    src: "/tmp/apache-maven-{{ maven_version }}-bin.tar.gz"
+    dest: /usr/local/
+    remote_src: True
+  become: true
+  become_user: root
+
+- name: symlink maven
+  file:
+    dest: /usr/local/maven
+    src: "/usr/local/apache-maven-{{ maven_version }}"
+    state: link
+  become: true
+  become_user: root
+
+- name: symlink mvn
+  file:
+    dest: "/usr/local/bin/{{ item }}"
+    src: "/usr/local/maven/bin/{{ item }}"
+    state: link
+  with_items:
+    - 'mvn'
+    - 'mvnDebug'
+    - 'mvnyjp'
+    - 'm2.conf'
+  become: true
+  become_user: root

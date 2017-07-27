@@ -1,0 +1,6 @@
+---
+# maven.yml
+
+- hosts: local
+  roles:
+    - maven

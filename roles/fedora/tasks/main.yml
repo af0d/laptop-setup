@@ -1,0 +1,105 @@
+---
+- name: add google chrome yum repo
+  yum_repository:
+    name: "google-chrome"
+    description: "Google Chrome repository"
+    baseurl: "http://dl.google.com/linux/chrome/rpm/stable/$basearch"
+    gpgkey: "https://dl-ssl.google.com/linux/linux_signing_key.pub"
+  become: yes
+  become_user: root
+
+- name: add Vivaldi web browser yum repo
+  yum_repository:
+    name: 'vivaldi'
+    description: 'Vivaldi browser repository'
+    baseurl: 'http://repo.vivaldi.com/archive/rpm/x86_64'
+    gpgkey: 'http://repo.vivaldi.com/archive/linux_signing_key.pub'
+  become: yes
+  become_user: root
+
+- name: install the rpmfusion repo packages
+  dnf:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - 'http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ ansible_distribution_version }}.noarch.rpm'
+    - 'http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ ansible_distribution_version }}.noarch.rpm'
+  become: yes
+  become_user: root
+
+- name: add COPR repository for hugo
+  command: "dnf copr enable daftaupe/hugo"
+  args:
+    creates: "/etc/yum.repos.d/_copr_daftaupe-hugo.repo"
+  become: yes
+  become_user: root
+
+- name: update system
+  dnf:
+    name: '*'
+    state: latest
+  become: yes
+  become_user: root
+
+- name: Install new packages for Fedora
+  dnf:
+    name: "{{ item }}"
+    state: latest
+  become: yes
+  become_user: root
+  with_items:
+    - 'multitail'
+    - 'emacs'
+    - 'emacs-yaml-mode'
+    - 'google-chrome-stable'
+    - 'vim'
+    - 'tree'
+    - 'gnome-tweak-tool'
+    - 'sil-andika-fonts'
+    - 'sil-charis-fonts'
+    - 'sil-gentium-fonts'
+    - 'sil-gentium-alt-fonts'
+    - 'sil-gentium-basic-book-fonts'
+    - 'gfs-*-fonts'
+    - 'NetworkManager-openconnect-gnome'
+    - 'NetworkManager-pptp-gnome'
+    - 'NetworkManager-vpnc-gnome'
+    - 'evolution'
+    - 'evolution-ews'
+    - 'hugo'
+    - 'inkscape'
+    - 'inkscape-docs'
+    - 'inkscape-view'
+    - 'ImageMagick'
+    - 'ImageMagick-doc'
+    - 'meld'
+    - 'fuse-sshfs'
+    - 'gstreamer-ffmpeg'
+    - 'gstreamer-plugins-bad'
+    - 'gstreamer-plugins-ugly'
+    - 'gstreamer1-libav'
+    - 'gstreamer1-plugins-bad-nonfree'
+    - 'gstreamer1-plugins-ugly'
+    - 'gstreamer1-plugins-ugly-free'
+    - 'vivaldi-stable'
+    - 'curl'
+    - 'cabextract'
+    - 'xorg-x11-font-utils'
+    - 'fontconfig'
+    - 'caja-dropbox'
+    - 'fldigi'
+    - 'flrig'
+    - 'git'
+    - 'git-extras'
+    - 'postgresql'
+    - 'postgresql-contrib'
+    - 'postgresql-docs'
+    - 'postgresql-server'
+
+- name: install msttcorefonts
+  dnf:
+    name: 'https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm'
+    state: present
+  become: yes
+  become_user: root
+

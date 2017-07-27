@@ -1,0 +1,8 @@
+
+PS1='\[\e]0;\H:\W\a\]\[\e[30m\]\[\e[41m\]\u@\H  \w \[\e[0m\]\[\e[0m\]\n\[\e[30m\]\[\e[41m\]-\[\e[0m\]\[\e[0m\] '
+
+
+#
+# Local Variables:
+# mode: sh-script
+# End:

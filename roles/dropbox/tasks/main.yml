@@ -1,0 +1,52 @@
+---
+# tasks file for dropbox
+
+- name: install dropbox Yum repo
+  yum_repository:
+    name: 'dropbox'
+    description: "Dropbox repository"
+    baseurl: 'http://linux.dropbox.com/fedora/{{ ansible_distribution_version }}/'
+    gpgkey: 'https://linux.dropbox.com/fedora/rpm-public-key.asc'
+    enabled: true
+  become: yes
+  become_user: root
+  when: "ansible_distribution == 'Fedora'"
+
+- name: install dropbox on Fedora
+  dnf:
+    name: 'dropbox'
+    state: latest
+  become: yes
+  become_user: root
+  when: "ansible_distribution == 'Fedora'"
+
+
+- name: install dropbox apt repo
+  apt_repository:
+    filename: 'dropbox'
+#    repo: "deb http://linux.dropbox.com/ubuntu {{ ansible_distribution_release }} main"
+    repo: "deb http://linux.dropbox.com/ubuntu xenial main"
+    state: present
+    update_cache: no
+  become: yes
+  become_user: root
+  when: "ansible_distribution == 'Ubuntu'"
+
+- name: import dropbox apt key
+  apt_key:
+    state: present
+    keyserver: pgp.mit.edu
+    id: 1C61A2656FB57B7E4DE0F4C1FC918B335044912E
+
+- name: install dropbox on Ubuntu
+  apt:
+    #name: 'https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2015.10.28_amd64.deb'
+    name: '{{ item }}'
+    state: present
+  become: yes
+  become_user: root
+  with_items:
+    - dropbox
+    - caja-dropbox
+    - nautilus-dropbox
+  when: "ansible_distribution == 'Ubuntu'"

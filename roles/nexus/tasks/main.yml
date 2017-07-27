@@ -1,0 +1,104 @@
+---
+# roles/nexus/tasks/main.yml
+
+- name: create nexus group
+  group:
+    name: "nexus"
+    state: present
+  become: true
+  become_user: root
+
+- name: create nexus user
+  user:
+    name: "nexus"
+    createhome: no
+    home: "/opt/nexus"
+    system: yes
+    state: present
+  become: true
+  become_user: root
+
+- name: download nexus
+  get_url:
+    url: http://download.sonatype.com/nexus/3/latest-unix.tar.gz
+    dest: "/tmp/nexus-{{ nexus_version }}-unix.tar.gz"
+
+- name: unpack nexus
+  unarchive:
+    src: "/tmp/nexus-{{ nexus_version }}-unix.tar.gz"
+    dest: /opt/
+    owner: nexus
+    group: nexus
+    remote_src: True
+  become: true
+  become_user: root
+
+- name: symlink nexus
+  file:
+    dest: /opt/nexus
+    src: "/opt/nexus-{{ nexus_version }}"
+    state: link
+    owner: nexus
+    group: nexus
+  become: true
+  become_user: root
+
+- name: copy nexus.rc file
+  copy:
+    src: files/nexus.rc
+    dest: /opt/nexus/bin/
+    owner: nexus
+    group: nexus
+    mode: 0644
+  become: true
+  become_user: root
+
+- name: set ownership of "/opt/nexus-{{ nexus_version }}"
+  file:
+    path: "/opt/nexus-{{ nexus_version }}"
+    owner: nexus
+    group: nexus
+    recurse: yes
+  become: true
+  become_user: root
+
+- name: set ownership of "/opt/sonatype-work"
+  file:
+    path: "/opt/sonatype-work"
+    owner: nexus
+    group: nexus
+    recurse: yes
+  become: true
+  become_user: root
+
+- name: copy nexus env file
+  copy:
+    src: files/nexus.env
+    dest: /etc/defaults/
+    owner: root
+    group: root
+    mode: 0644
+  become: true
+  become_user: root
+
+- name: copy nexus service unit
+  copy:
+    src: files/nexus.service
+    dest: /etc/systemd/system/
+    owner: root
+    group: root
+    mode: 0644
+  become: true
+  become_user: root
+
+#############################
+# only with Ansible 2.2+
+
+- name: set nexus to start
+  systemd:
+    name: nexus
+    enabled: yes
+    masked: no
+    daemon-reload: yes
+  become: true
+  become_user: root

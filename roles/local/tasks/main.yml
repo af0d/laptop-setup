@@ -1,0 +1,122 @@
+---
+- name: make font directory for Monaco font
+  file:
+    dest: /usr/share/fonts/ttf-monaco
+    state: directory
+  become: true
+  become_user: root
+
+- name: download Monaco TTF font
+  get_url:
+    dest: /usr/share/fonts/ttf-monaco
+    url: http://www.gringod.com/wp-upload/software/Fonts/Monaco_Linux.ttf
+    mode: 0644
+  become: true
+  become_user: root
+
+- name: make font dir
+  command: mkfontdir
+  args:
+    chdir: /usr/share/fonts/ttf-monaco
+    creates: /usr/share/fonts/ttf-monaco/fonts.dir
+  become: true
+  become_user: root
+
+- name: update font cache
+  command: fc-cache
+  args:
+    chdir: /usr/share/fonts
+  become: true
+  become_user: root
+
+- name: make fontconfig dir
+  file:
+    dest: ~/.config/fontconfig/conf.d
+    state: directory
+
+- name: fix font rendering
+  copy:
+    dest: ~/.config/fontconfig/conf.d/20-no-embedded.conf
+    src: 20-no-embedded.conf
+
+- name: fix font rendering everywhere
+  copy:
+    dest: /usr/share/fontconfig/20-no-embedded.conf
+    src: 20-no-embedded.conf
+  become: true
+  become_user: root
+
+- name: copy files to "{{ ansible_env['HOME'] }}"
+  copy:
+    src: "{{ item.src }}"
+    dest: "{{ ansible_env['HOME'] }}/{{ item.dest }}"
+    group: "{{ ansible_env['USER'] }}"
+    owner: "{{ ansible_env['USER'] }}"
+    mode: 0644
+  with_items:
+    - { src: 'dot.shenv', dest: '.shenv' }
+    - { src: 'dot.promptrc', dest: '.promptrc' }
+    - { src: 'dot.digrc', dest: '.digrc' }
+    - { src: 'dot.vimrc', dest: '.vimrc' }
+
+
+- name: add .shenv to .bashrc
+  lineinfile:
+    dest: "{{ ansible_env['HOME'] }}/.bashrc"
+    line: '. ${HOME}/.shenv'
+    state: present
+
+- name: copy files to /root
+  copy:
+    src: "{{ item.src }}"
+    dest: "/root/{{ item.dest }}"
+    group: root
+    owner: root
+    mode: 0600
+  with_items:
+    - { src: 'root.dot.shenv', dest: '.shenv' }
+    - { src: 'root.dot.promptrc', dest: '.promptrc' }
+    - { src: 'dot.digrc', dest: '.digrc' }
+    - { src: 'dot.vimrc', dest: '.vimrc' }
+  become: true
+  become_user: root
+
+- name: add .shenv to .bashrc for root
+  lineinfile:
+    dest: /root/.bashrc
+    line: '. /root/.shenv'
+    state: present
+  become: true
+  become_user: root
+
+- name: Configure system responsiveness
+  sysctl:
+    name: "{{ item.name }}"
+    value: "{{ item.value }}"
+    state: present
+    sysctl_file: /etc/sysctl.d/99-sysctl.conf
+  with_items:
+    - { name: 'vm.swappiness', value: '1' }
+# https://lwn.net/Articles/572921/
+    - { name: 'vm.dirty_background_bytes', value: '16777216' }
+    - { name: 'vm.dirty_bytes', value: '50331648' }
+# for servers
+#    - { name: 'net.ipv4.tcp_keepalive_time', value: '300' }
+#    - { name: 'fs.file-max', value: '64000' }
+  become: true
+  become_user: root
+
+#- name: configure pam limits
+#  pam_limit:
+#    domain: '*'
+#    limit_type: "{{ item.type }}"
+#    limit_item: "{{ item.name }}"
+#    value: "{{ item.value }}"
+#  with_items:
+#    - { name: 'nofile', value: '8192', type: 'hard' }
+#    - { name: 'nofile', value: '8192', type: 'soft' }
+##    - { name: 'nproc', value: '63500', type: 'hard' }
+##    - { name: 'nproc', value: '63500', type: 'soft' }
+##  become: true
+##  become_user: root
+

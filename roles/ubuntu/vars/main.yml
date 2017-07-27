@@ -1,0 +1,123 @@
+---
+# roles/ubuntu/vars/main.yml
+
+repos:
+  xenial:
+    - { name: 'ansible', url: 'ppa:ansible/ansible' }
+#    - { name: 'cinnamon', url: 'ppa:embrosyn/cinnamon' }
+    - { name: 'hipchat4', url: 'deb https://atlassian.artifactoryonline.com/atlassian/hipchat-apt-client {{ ansible_distribution_release }} main' }
+    - { name: 'libreoffice', url: 'ppa:libreoffice/ppa' }
+    - { name: 'numix', url: 'ppa:numix/ppa' }
+    - { name: 'oomox', url: 'ppa:nilarimogard/webupd8' }
+    - { name: 'postgresql', url: 'ppa:nilarimogard/webupd8' }
+    - { name: 'system76', url: 'ppa:system76-dev/stable' }
+    - { name: 'vivaldi', url: 'deb http://repo.vivaldi.com/stable/deb/ stable main' }
+    - { name: 'webupd8team-java', url: 'ppa:webupd8team/java' }
+#    { name: 'gnome3-staging', url: 'ppa:gnome3-team/gnome3-staging' }
+#    { name: 'gnome3', url: 'ppa:gnome3-team/gnome3' }
+  zesty:
+    - { name: 'ansible', url: 'ppa:ansible/ansible' }
+    # - { name: 'cinnamon', url: 'ppa:embrosyn/cinnamon' }
+    - { name: 'hipchat4', url: 'deb https://atlassian.artifactoryonline.com/atlassian/hipchat-apt-client {{ ansible_distribution_release }} main' }
+    - { name: 'libreoffice', url: 'ppa:libreoffice/ppa' }
+    - { name: 'numix', url: 'ppa:numix/ppa' }
+    - { name: 'oomox', url: 'ppa:nilarimogard/webupd8' }
+    - { name: 'postgresql', url: 'ppa:nilarimogard/webupd8' }
+    - { name: 'system76', url: 'ppa:system76-dev/stable' }
+    - { name: 'vivaldi', url: 'deb http://repo.vivaldi.com/stable/deb/ stable main' }
+    - { name: 'webupd8team-java', url: 'ppa:webupd8team/java' }
+#    { name: 'gnome3-staging', url: 'ppa:gnome3-team/gnome3-staging' }
+#    { name: 'gnome3', url: 'ppa:gnome3-team/gnome3' }
+
+packages:
+  common:
+    - apt-rdepends
+    - backintime-gnome
+    - bleachbit
+    - build-essential
+    - cheese
+    - cifs-utils
+    - compizconfig-settings-manager
+    - curl
+    - darktable
+    - dia
+    - emacs
+    - evolution
+    - evolution-ews
+    - evolution-indicator
+    - evolution-plugins
+    - evolution-plugins-experimental
+    - evolution-rss
+    - ffmpeg
+    - filezilla
+    - font-manager
+    - fonts-cantarell
+    - fonts-century-catalogue
+    - fonts-crosextra-caladea
+    - fonts-crosextra-carlito
+    - fonts-gfs*
+    - fonts-sil-gentium*
+    - gigolo
+    - git
+    - git-core
+    - git-doc
+    - glabels
+    - gnome-backgrounds
+    - gnome-themes-standard
+    - gnome-tweak-tool
+    - gpointing-device-settings
+    - gstreamer1.0-plugins-bad
+    - gstreamer1.0-plugins-good
+    - gstreamer1.0-plugins-ugly
+    - gvfs-fuse
+    - htop
+    - inkscape
+    - iotop
+    - libreoffice
+    - libxss1
+    - mate-core
+    - mate-desktop-environment
+    - meld
+    - multitail
+    - openjdk-8-doc
+    - openjdk-8-jdk
+    - openjdk-9-jdk
+    - openssh-server
+    - p7zip-full
+    - postgresql
+    - postgresql-client
+    - postgresql-contrib
+    - ppa-purge
+    - psgml
+    - pytagsfs
+    - python-dev
+    - python-mode
+    - scribus
+    - splat
+    - synaptic
+    - system76-driver
+    - thunderbird
+    - ubuntu-restricted-extras
+    - vim
+    - vlc
+    - vorbisgain
+    - virtualbox-5.1
+  xenial:
+  #   - cairo-dock
+  #   - cairo-dock-plug-ins
+#    - cinnamon-desktop-environment
+    - flashplugin-installer
+    - fontconfig-infinality
+    - fonts-droid
+  #   - 'playonlinux'
+  #   - 'typecatcher'
+  zesty: 
+    - account-plugin-linkedin
+    - alien
+#    - cairo-dock
+#    - cairo-dock-plug-ins
+#    - oracle-java8-installer
+#    - oracle-java8-set-default
+#    - oracle-java8-unlimited-jce-policy
+#    - playonlinux
+#    - typecatcher

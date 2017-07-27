@@ -1,0 +1,19 @@
+---
+- hosts: local
+  roles:
+    - local
+
+- hosts: fedora
+  roles:
+    - fedora
+
+- hosts: ubuntu
+  roles:
+    - ubuntu
+
+- hosts: local
+  roles:
+    - dropbox
+    - hipchat4
+    - maven
+    - nexus

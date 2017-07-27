@@ -1,0 +1,16 @@
+[Unit]
+Description=Sonatype Nexus
+
+[Service]
+Type=forking
+EnvironmentFile=-/etc/default/nexus.env
+#PIDFile=/opt/nexus/nexus.pid
+ExecStart=/opt/nexus/bin/nexus start
+ExecReload=/opt/nexus/bin/nexus restart
+ExecStop=/opt/nexus/bin/nexus stop
+User=nexus
+Restart=on-abort
+
+[Install]
+Alias=nexus
+WantedBy=default.target

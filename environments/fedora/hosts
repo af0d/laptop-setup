@@ -1,0 +1,7 @@
+
+[local]
+localhost ansible_connection=local
+
+[fedora]
+localhost ansible_connection=local
+

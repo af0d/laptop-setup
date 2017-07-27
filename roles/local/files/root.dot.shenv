@@ -1,0 +1,30 @@
+
+set -o emacs
+#set -o vi
+
+alias l='/bin/ls -CF --color=auto'
+alias ll='/bin/ls -lF --color=auto'
+alias dn='pushd'
+alias up='popd'
+alias em='emacs -nw'
+
+alias sup='ps -u ${LOGNAME} -o user,pid,ppid,args'
+alias sup2='ps -u ${LOGNAME} -o user,pid,ppid,rss,vsz,args'
+
+alias notmvn='mvn -DskipTests=true'
+
+. ${HOME}/.promptrc
+
+export EDITOR="/usr/bin/vim"
+
+
+function diff () {
+  width=`stty size | awk '{print $2;}'`
+  /usr/bin/sdiff -l -w ${width} $1 $2
+}
+
+
+
+# Local Variables:
+# mode: sh
+# End:

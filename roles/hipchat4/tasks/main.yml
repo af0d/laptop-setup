@@ -1,0 +1,21 @@
+---
+# tasks file for role hipchat4
+
+- name: install HipChat4 yum repo
+  yum_repository:
+    name: "Hipchat4"
+    description: "Atlassian HipChat4"
+    baseurl: "https://atlassian.artifactoryonline.com/atlassian/hipchat-yum-client/"  
+    enabled: true  
+    gpgcheck: false
+  become: yes
+  become_user: root
+  when: "ansible_distribution == 'Fedora'"
+
+- name: install HipChat4 on Fedora
+  dnf:
+    name: 'hipchat4'
+    state: latest
+  become: yes
+  become_user: root
+  when: "ansible_distribution == 'Fedora'"
