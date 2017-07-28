@@ -50,6 +50,8 @@ packages:
     - evolution-rss
     - ffmpeg
     - filezilla
+    - fldigi
+    - flrig
     - font-manager
     - fonts-cantarell
     - fonts-century-catalogue
@@ -74,6 +76,7 @@ packages:
     - inkscape
     - iotop
     - libreoffice
+    - libgnome-keyring-dev
     - libxss1
     - mate-core
     - mate-desktop-environment
