@@ -4,6 +4,7 @@
 repos:
   xenial:
     - { name: 'ansible', url: 'ppa:ansible/ansible' }
+    - { name: 'chkservice', url: 'ppa:linuxenko/chkservice' }
 #    - { name: 'cinnamon', url: 'ppa:embrosyn/cinnamon' }
     - { name: 'hipchat4', url: 'deb https://atlassian.artifactoryonline.com/atlassian/hipchat-apt-client {{ ansible_distribution_release }} main' }
     - { name: 'libreoffice', url: 'ppa:libreoffice/ppa' }
@@ -17,6 +18,7 @@ repos:
 #    { name: 'gnome3', url: 'ppa:gnome3-team/gnome3' }
   zesty:
     - { name: 'ansible', url: 'ppa:ansible/ansible' }
+    - { name: 'chkservice', url: 'ppa:linuxenko/chkservice' }
     # - { name: 'cinnamon', url: 'ppa:embrosyn/cinnamon' }
     - { name: 'hipchat4', url: 'deb https://atlassian.artifactoryonline.com/atlassian/hipchat-apt-client {{ ansible_distribution_release }} main' }
     - { name: 'libreoffice', url: 'ppa:libreoffice/ppa' }
@@ -36,6 +38,7 @@ packages:
     - bleachbit
     - build-essential
     - cheese
+    - chkservice
     - cifs-utils
     - compizconfig-settings-manager
     - curl
