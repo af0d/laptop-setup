@@ -1,0 +1,4 @@
+---
+# /roles/postman/vars/main.yml
+
+postman_version: "5.3.2"
