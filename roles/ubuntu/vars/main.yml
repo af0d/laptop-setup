@@ -56,7 +56,6 @@ packages:
     - bleachbit
     - build-essential
     - cheese
-    - chkservice
     - cifs-utils
     - compizconfig-settings-manager
     - curl
@@ -70,6 +69,7 @@ packages:
     - evolution-plugins
     - evolution-plugins-experimental
     - evolution-rss
+    - faenza-icon-theme
     - ffmpeg
     - filezilla
     - fldigi
@@ -102,6 +102,7 @@ packages:
     - libxss1
     - mate-core
     - mate-desktop-environment
+    - mate-icon-theme-faenza
     - meld
     - multitail
     - numix-gtk-theme
@@ -136,6 +137,7 @@ packages:
   xenial:
   #   - cairo-dock
   #   - cairo-dock-plug-ins
+    - chkservice
 #    - cinnamon-desktop-environment
     - flashplugin-installer
     - fontconfig-infinality
@@ -148,6 +150,7 @@ packages:
   zesty: 
     - account-plugin-linkedin
     - alien
+    - chkservice
     - gpointing-device-settings
     - oomox
     - virtualbox-5.1
