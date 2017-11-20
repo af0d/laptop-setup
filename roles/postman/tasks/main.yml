@@ -1,0 +1,51 @@
+---
+# tasks for role postname
+
+- name: download Postman
+  get_url:
+    url: https://dl.pstmn.io/download/latest/linux64
+    dest: "/tmp/Postman-linux-x64-{{ postman_version }}.tar.gz"
+
+- name: unpack Postman
+  unarchive:
+    src: "/tmp/Postman-linux-x64-{{ postman_version }}.tar.gz"
+    dest: /opt/
+    owner: root
+    group: root
+    remote_src: True
+    creates: /opt/Postman
+  become: true
+  become_user: root
+
+- name: copy Postman desktop definition
+  copy:
+    src: postman.desktop
+    dest: /tmp/
+    owner: root
+    group: root
+  become: true
+  become_user: root
+
+- name: symlink Postman
+  file:
+    dest: /opt/postman
+    src: "/opt/Postman"
+    state: link
+  become: true
+  become_user: root
+
+- name: symlink Postman executable
+  file:
+    src: "/opt/Postman/Postman"
+    dest: "/usr/local/bin/{{ item }}"
+    state: link
+  with_items:
+    - postman
+    - Postman
+  become: true
+  become_user: root
+
+- name: install desktop file 
+  command: desktop-file-install /tmp/postman.desktop
+  become: true
+  become_user: root

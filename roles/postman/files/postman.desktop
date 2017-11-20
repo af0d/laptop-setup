@@ -1,0 +1,13 @@
+[Desktop Entry]
+Exec=/opt/Postman/Postman
+GenericName[en_US]=Postman
+GenericName=Postman
+Icon=/opt/Postman/resources/app/assets/icon.png
+Name[en_US]=Postman
+Name=Postman
+Categories=Development;X-Internet;Utility;
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+Type=Application
+

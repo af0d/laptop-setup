@@ -1,0 +1,6 @@
+---
+# nexus.yml
+
+- hosts: local
+  roles:
+    - dropbox

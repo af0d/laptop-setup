@@ -12,12 +12,12 @@
   become: true
   become_user: root
 
-- name: add APT key for HipChat
-  apt_key:
-    url: 'https://atlassian.artifactoryonline.com/atlassian/api/gpg/key/public'
-    state: present
-  become: true
-  become_user: root
+#- name: add APT key for HipChat
+#  apt_key:
+#    url: 'https://atlassian.artifactoryonline.com/atlassian/api/gpg/key/public'
+#    state: present
+#  become: true
+#  become_user: root
 
 - name: add APT key for Google Chrome
   apt_key:
@@ -47,6 +47,14 @@
   become: true
   become_user: root
 
+- name: add config for Oracle Java contributor agreement
+  debconf:
+    name: oracle-java8-installer
+    question: shared/accepted-oracle-license-v1-1
+    vtype: boolean
+    value: true
+  become: true
+  become_user: root
 
 - name: update APT cache
   apt:

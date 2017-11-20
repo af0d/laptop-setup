@@ -19,3 +19,23 @@
   become: yes
   become_user: root
   when: "ansible_distribution == 'Fedora'"
+
+
+- name: install HipChat4 apt repo
+  apt_repository:
+    filename: "Hipchat4"
+    description: "Atlassian HipChat4"
+    baseurl: "deb https://atlassian.artifactoryonline.com/atlassian/hipchat-apt-client {{ ansible_distribution_release }} main"  
+    enabled: true  
+    gpgcheck: false
+  become: yes
+  become_user: root
+  when: "ansible_distribution == 'Ubuntu'"
+
+- name: install HipChat4 on Ubuntu
+  apt:
+    name: 'hipchat4'
+    state: latest
+  become: yes
+  become_user: root
+  when: "ansible_distribution == 'Ubuntu'"

@@ -4,14 +4,13 @@
 - name: fetch maven
   get_url:
     url: "http://www-us.apache.org/dist/maven/maven-3/{{ maven_version }}/binaries/apache-maven-{{ maven_version }}-bin.tar.gz"
-    dest: /tmp/
-#  creates: "/tmp/apache-maven-{{ maven_version }}-bin.tar.gz"
+    dest: "/tmp/apache-maven-{{ maven_version }}-bin.tar.gz"
 
 - name: unpack maven
   unarchive:
     src: "/tmp/apache-maven-{{ maven_version }}-bin.tar.gz"
     dest: /usr/local/
-    remote_src: True
+    creates: "/usr/local/apache-maven-{{ maven_version }}-bin.tar.gz"
   become: true
   become_user: root
 

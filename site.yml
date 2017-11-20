@@ -14,6 +14,7 @@
 - hosts: local
   roles:
     - dropbox
-    - hipchat4
+#    - hipchat4
     - maven
     - nexus
+    - postman

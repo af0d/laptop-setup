@@ -3,43 +3,65 @@
 
 repos:
   xenial:
+    - { name: 'adapta', url: 'ppa:tista/adapta' }
     - { name: 'ansible', url: 'ppa:ansible/ansible' }
+    - { name: 'chkservice', url: 'ppa:linuxenko/chkservice' }
 #    - { name: 'cinnamon', url: 'ppa:embrosyn/cinnamon' }
     - { name: 'hipchat4', url: 'deb https://atlassian.artifactoryonline.com/atlassian/hipchat-apt-client {{ ansible_distribution_release }} main' }
     - { name: 'libreoffice', url: 'ppa:libreoffice/ppa' }
     - { name: 'numix', url: 'ppa:numix/ppa' }
-    - { name: 'oomox', url: 'ppa:nilarimogard/webupd8' }
-    - { name: 'postgresql', url: 'ppa:nilarimogard/webupd8' }
+    - { name: 'webupd8', url: 'ppa:nilarimogard/webupd8' }
     - { name: 'system76', url: 'ppa:system76-dev/stable' }
     - { name: 'vivaldi', url: 'deb http://repo.vivaldi.com/stable/deb/ stable main' }
     - { name: 'webupd8team-java', url: 'ppa:webupd8team/java' }
+    - { name: 'google-chrome', url: 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' }
 #    { name: 'gnome3-staging', url: 'ppa:gnome3-team/gnome3-staging' }
 #    { name: 'gnome3', url: 'ppa:gnome3-team/gnome3' }
   zesty:
+    - { name: 'adapta', url: 'ppa:tista/adapta' }
     - { name: 'ansible', url: 'ppa:ansible/ansible' }
+    - { name: 'chkservice', url: 'ppa:linuxenko/chkservice' }
     # - { name: 'cinnamon', url: 'ppa:embrosyn/cinnamon' }
-    - { name: 'hipchat4', url: 'deb https://atlassian.artifactoryonline.com/atlassian/hipchat-apt-client {{ ansible_distribution_release }} main' }
+    # - { name: 'hipchat4', url: 'deb https://atlassian.artifactoryonline.com/atlassian/hipchat-apt-client {{ ansible_distribution_release }} main' }
     - { name: 'libreoffice', url: 'ppa:libreoffice/ppa' }
     - { name: 'numix', url: 'ppa:numix/ppa' }
-    - { name: 'oomox', url: 'ppa:nilarimogard/webupd8' }
-    - { name: 'postgresql', url: 'ppa:nilarimogard/webupd8' }
+    - { name: 'webupd8', url: 'ppa:nilarimogard/webupd8' }
     - { name: 'system76', url: 'ppa:system76-dev/stable' }
     - { name: 'vivaldi', url: 'deb http://repo.vivaldi.com/stable/deb/ stable main' }
     - { name: 'webupd8team-java', url: 'ppa:webupd8team/java' }
+    - { name: 'google-chrome', url: 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' }
+#    { name: 'gnome3-staging', url: 'ppa:gnome3-team/gnome3-staging' }
+#    { name: 'gnome3', url: 'ppa:gnome3-team/gnome3' }
+  artful:
+    - { name: 'adapta', url: 'ppa:tista/adapta' }
+    - { name: 'ansible', url: 'ppa:ansible/ansible' }
+    # - { name: 'cinnamon', url: 'ppa:embrosyn/cinnamon' }
+    # - { name: 'hipchat4', url: 'deb https://atlassian.artifactoryonline.com/atlassian/hipchat-apt-client {{ ansible_distribution_release }} main' }
+    # - { name: 'hipchat4', url: 'deb https://atlassian.artifactoryonline.com/atlassian/hipchat-apt-client zesty main' }
+    - { name: 'libreoffice', url: 'ppa:libreoffice/ppa' }
+    - { name: 'numix', url: 'ppa:numix/ppa' }
+    - { name: 'webupd8', url: 'ppa:nilarimogard/webupd8' }
+    - { name: 'system76', url: 'ppa:system76-dev/stable' }
+    - { name: 'vivaldi', url: 'deb http://repo.vivaldi.com/stable/deb/ stable main' }
+    - { name: 'webupd8team-java', url: 'ppa:webupd8team/java' }
+    - { name: 'google-chrome', url: 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' }
 #    { name: 'gnome3-staging', url: 'ppa:gnome3-team/gnome3-staging' }
 #    { name: 'gnome3', url: 'ppa:gnome3-team/gnome3' }
 
 packages:
   common:
+    - adapta-gtk-theme
     - apt-rdepends
     - backintime-gnome
     - bleachbit
     - build-essential
     - cheese
+    - chkservice
     - cifs-utils
     - compizconfig-settings-manager
     - curl
     - darktable
+    - debconf-utils
     - dia
     - emacs
     - evolution
@@ -67,7 +89,7 @@ packages:
     - gnome-backgrounds
     - gnome-themes-standard
     - gnome-tweak-tool
-    - gpointing-device-settings
+    - google-chrome-stable
     - gstreamer1.0-plugins-bad
     - gstreamer1.0-plugins-good
     - gstreamer1.0-plugins-ugly
@@ -82,10 +104,17 @@ packages:
     - mate-desktop-environment
     - meld
     - multitail
+    - numix-gtk-theme
+    - numix-icon-theme
+    - numix-icon-theme-bevel
     - openjdk-8-doc
-    - openjdk-8-jdk
-    - openjdk-9-jdk
+#    - openjdk-8-jdk
+#    - openjdk-9-jdk
     - openssh-server
+    - oracle-java8-installer
+    - oracle-java8-set-default
+    - oracle-java8-unlimited-jce-policy
+    - oracle-java9-installer
     - p7zip-full
     - postgresql
     - postgresql-client
@@ -104,7 +133,6 @@ packages:
     - vim
     - vlc
     - vorbisgain
-    - virtualbox-5.1
   xenial:
   #   - cairo-dock
   #   - cairo-dock-plug-ins
@@ -112,15 +140,18 @@ packages:
     - flashplugin-installer
     - fontconfig-infinality
     - fonts-droid
+    - gpointing-device-settings
   #   - 'playonlinux'
   #   - 'typecatcher'
+    - oomox
+    - virtualbox-5.1
   zesty: 
     - account-plugin-linkedin
     - alien
-#    - cairo-dock
-#    - cairo-dock-plug-ins
-#    - oracle-java8-installer
-#    - oracle-java8-set-default
-#    - oracle-java8-unlimited-jce-policy
-#    - playonlinux
-#    - typecatcher
+    - gpointing-device-settings
+    - oomox
+    - virtualbox-5.1
+  artful: 
+    - alien
+    - virtualbox
+    # - oomox
