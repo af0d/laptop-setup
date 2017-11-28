@@ -1,0 +1,51 @@
+---
+# tasks file for docker
+
+- name: install prerequisites for docker CE
+  apt:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - apt-transport-https
+    - ca-certificates
+    - curl
+    - software-properties-common
+  become: yes
+  become_user: root
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  tags:
+    - docker
+
+- name: import apt key for docker CE
+  apt_key:
+    url: https://download.docker.com/linux/ubuntu/gpg
+    state: present
+  become: yes
+  become_user: root
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  tags:
+    - docker
+
+- name: add docker CE apt repository
+  apt_repository:
+    repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ ansible_distribution_release }} release"
+    filename: "docker"
+    state: present
+    update_cache: yes
+  become: yes
+  become_user: root
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  tags:
+    - docker
+
+- name: install docker CE
+  apt:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - docker-ce
+  become: yes
+  become_user: root
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  tags:
+    - docker

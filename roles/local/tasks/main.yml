@@ -59,12 +59,34 @@
     - { src: 'dot.digrc', dest: '.digrc' }
     - { src: 'dot.vimrc', dest: '.vimrc' }
 
-
 - name: add .shenv to .bashrc
   lineinfile:
     dest: "{{ ansible_env['HOME'] }}/.bashrc"
     line: '. ${HOME}/.shenv'
     state: present
+
+- name: add basic ssh client config
+  blockinfile:
+    path: "{{ ansible_env['HOME'] }}/.ssh/config"
+    backup: yes
+    block: |
+      Host *
+          AddressFamily inet
+          Protocol 2
+          Compression yes
+          ServerAliveInterval 60
+          ControlMaster auto
+          ControlPath  ~/.ssh/sockets/%r@%h-%p
+          ControlPersist 600
+          ForwardX11 yes
+          ForwardX11Trusted yes
+
+- name: create ~/.ssh/sockets
+  file:
+    path: "{{ ansible_env['HOME'] }}/.ssh/sockets"
+    mode: 0700
+    state: directory
+
 
 - name: copy files to /root
   copy:

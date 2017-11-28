@@ -6,13 +6,15 @@ repos:
     - { name: 'adapta', url: 'ppa:tista/adapta' }
     - { name: 'ansible', url: 'ppa:ansible/ansible' }
     - { name: 'chkservice', url: 'ppa:linuxenko/chkservice' }
+    - { name: 'dvdstyler', url: 'ppa:ubuntuhandbook1/dvdstyler' }
 #    - { name: 'cinnamon', url: 'ppa:embrosyn/cinnamon' }
     - { name: 'hipchat4', url: 'deb https://atlassian.artifactoryonline.com/atlassian/hipchat-apt-client {{ ansible_distribution_release }} main' }
     - { name: 'libreoffice', url: 'ppa:libreoffice/ppa' }
     - { name: 'numix', url: 'ppa:numix/ppa' }
-    - { name: 'webupd8', url: 'ppa:nilarimogard/webupd8' }
     - { name: 'system76', url: 'ppa:system76-dev/stable' }
     - { name: 'vivaldi', url: 'deb http://repo.vivaldi.com/stable/deb/ stable main' }
+    - { name: 'webupd8', url: 'ppa:nilarimogard/webupd8' }
+    - { name: 'webupd8team-atom', url: 'ppa:webupd8team/atom' }
     - { name: 'webupd8team-java', url: 'ppa:webupd8team/java' }
     - { name: 'google-chrome', url: 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' }
 #    { name: 'gnome3-staging', url: 'ppa:gnome3-team/gnome3-staging' }
@@ -21,13 +23,15 @@ repos:
     - { name: 'adapta', url: 'ppa:tista/adapta' }
     - { name: 'ansible', url: 'ppa:ansible/ansible' }
     - { name: 'chkservice', url: 'ppa:linuxenko/chkservice' }
+    - { name: 'dvdstyler', url: 'ppa:ubuntuhandbook1/dvdstyler' }
     # - { name: 'cinnamon', url: 'ppa:embrosyn/cinnamon' }
     # - { name: 'hipchat4', url: 'deb https://atlassian.artifactoryonline.com/atlassian/hipchat-apt-client {{ ansible_distribution_release }} main' }
     - { name: 'libreoffice', url: 'ppa:libreoffice/ppa' }
     - { name: 'numix', url: 'ppa:numix/ppa' }
-    - { name: 'webupd8', url: 'ppa:nilarimogard/webupd8' }
     - { name: 'system76', url: 'ppa:system76-dev/stable' }
     - { name: 'vivaldi', url: 'deb http://repo.vivaldi.com/stable/deb/ stable main' }
+    - { name: 'webupd8', url: 'ppa:nilarimogard/webupd8' }
+    - { name: 'webupd8team-atom', url: 'ppa:webupd8team/atom' }
     - { name: 'webupd8team-java', url: 'ppa:webupd8team/java' }
     - { name: 'google-chrome', url: 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' }
 #    { name: 'gnome3-staging', url: 'ppa:gnome3-team/gnome3-staging' }
@@ -35,14 +39,17 @@ repos:
   artful:
     - { name: 'adapta', url: 'ppa:tista/adapta' }
     - { name: 'ansible', url: 'ppa:ansible/ansible' }
+    - { name: 'chkservice', url: 'ppa:linuxenko/chkservice' }
+    - { name: 'dvdstyler', url: 'ppa:ubuntuhandbook1/dvdstyler' }
     # - { name: 'cinnamon', url: 'ppa:embrosyn/cinnamon' }
     # - { name: 'hipchat4', url: 'deb https://atlassian.artifactoryonline.com/atlassian/hipchat-apt-client {{ ansible_distribution_release }} main' }
     # - { name: 'hipchat4', url: 'deb https://atlassian.artifactoryonline.com/atlassian/hipchat-apt-client zesty main' }
     - { name: 'libreoffice', url: 'ppa:libreoffice/ppa' }
     - { name: 'numix', url: 'ppa:numix/ppa' }
-    - { name: 'webupd8', url: 'ppa:nilarimogard/webupd8' }
     - { name: 'system76', url: 'ppa:system76-dev/stable' }
     - { name: 'vivaldi', url: 'deb http://repo.vivaldi.com/stable/deb/ stable main' }
+    - { name: 'webupd8', url: 'ppa:nilarimogard/webupd8' }
+    - { name: 'webupd8team-atom', url: 'ppa:webupd8team/atom' }
     - { name: 'webupd8team-java', url: 'ppa:webupd8team/java' }
     - { name: 'google-chrome', url: 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' }
 #    { name: 'gnome3-staging', url: 'ppa:gnome3-team/gnome3-staging' }
@@ -52,6 +59,7 @@ packages:
   common:
     - adapta-gtk-theme
     - apt-rdepends
+    - atom
     - backintime-gnome
     - bleachbit
     - build-essential
@@ -62,6 +70,7 @@ packages:
     - darktable
     - debconf-utils
     - dia
+    - dvdstyler
     - emacs
     - evolution
     - evolution-ews

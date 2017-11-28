@@ -1,6 +1,6 @@
 ---
-# dropbox.yml
+# docker.yml
 
 - hosts: local
   roles:
-    - dropbox
+    - docker
