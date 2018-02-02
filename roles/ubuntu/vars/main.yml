@@ -23,6 +23,7 @@ repos:
     - { name: 'adapta', url: 'ppa:tista/adapta' }
     - { name: 'ansible', url: 'ppa:ansible/ansible' }
     - { name: 'chkservice', url: 'ppa:linuxenko/chkservice' }
+    - { name: 'darktable', url: 'ppa:pmjdebruijn/darktable-release' }
     - { name: 'dvdstyler', url: 'ppa:ubuntuhandbook1/dvdstyler' }
     # - { name: 'cinnamon', url: 'ppa:embrosyn/cinnamon' }
     # - { name: 'hipchat4', url: 'deb https://atlassian.artifactoryonline.com/atlassian/hipchat-apt-client {{ ansible_distribution_release }} main' }
@@ -40,10 +41,12 @@ repos:
     - { name: 'adapta', url: 'ppa:tista/adapta' }
     - { name: 'ansible', url: 'ppa:ansible/ansible' }
     - { name: 'chkservice', url: 'ppa:linuxenko/chkservice' }
+    - { name: 'darktable', url: 'ppa:pmjdebruijn/darktable-release' }
     - { name: 'dvdstyler', url: 'ppa:ubuntuhandbook1/dvdstyler' }
     # - { name: 'cinnamon', url: 'ppa:embrosyn/cinnamon' }
     # - { name: 'hipchat4', url: 'deb https://atlassian.artifactoryonline.com/atlassian/hipchat-apt-client {{ ansible_distribution_release }} main' }
     # - { name: 'hipchat4', url: 'deb https://atlassian.artifactoryonline.com/atlassian/hipchat-apt-client zesty main' }
+    # - { name: 'kubuntu', url: 'ppa:kubuntu-ppa/backports' }
     - { name: 'libreoffice', url: 'ppa:libreoffice/ppa' }
     - { name: 'numix', url: 'ppa:numix/ppa' }
     - { name: 'system76', url: 'ppa:system76-dev/stable' }
