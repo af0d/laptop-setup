@@ -44,6 +44,7 @@ repos:
     # - { name: 'cinnamon', url: 'ppa:embrosyn/cinnamon' }
     # - { name: 'hipchat4', url: 'deb https://atlassian.artifactoryonline.com/atlassian/hipchat-apt-client {{ ansible_distribution_release }} main' }
     # - { name: 'hipchat4', url: 'deb https://atlassian.artifactoryonline.com/atlassian/hipchat-apt-client zesty main' }
+    - { name: 'kubuntu', url: 'ppa:kubuntu-ppa/backports' }
     - { name: 'libreoffice', url: 'ppa:libreoffice/ppa' }
     - { name: 'numix', url: 'ppa:numix/ppa' }
     - { name: 'system76', url: 'ppa:system76-dev/stable' }
@@ -165,5 +166,6 @@ packages:
     - virtualbox-5.1
   artful: 
     - alien
+    - kubuntu-full
     - virtualbox
     # - oomox
