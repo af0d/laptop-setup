@@ -10,6 +10,8 @@ repos:
 #    - { name: 'cinnamon', url: 'ppa:embrosyn/cinnamon' }
     - { name: 'hipchat4', url: 'deb https://atlassian.artifactoryonline.com/atlassian/hipchat-apt-client {{ ansible_distribution_release }} main' }
     - { name: 'libreoffice', url: 'ppa:libreoffice/ppa' }
+    - { name: 'noobslab-icons', url: 'ppa:noobslab/icons' }
+    - { name: 'noobslab-themes', url: 'ppa:noobslab/themes' }
     - { name: 'numix', url: 'ppa:numix/ppa' }
     - { name: 'system76', url: 'ppa:system76-dev/stable' }
     - { name: 'vivaldi', url: 'deb http://repo.vivaldi.com/stable/deb/ stable main' }
@@ -28,6 +30,8 @@ repos:
     # - { name: 'cinnamon', url: 'ppa:embrosyn/cinnamon' }
     # - { name: 'hipchat4', url: 'deb https://atlassian.artifactoryonline.com/atlassian/hipchat-apt-client {{ ansible_distribution_release }} main' }
     - { name: 'libreoffice', url: 'ppa:libreoffice/ppa' }
+    - { name: 'noobslab-icons', url: 'ppa:noobslab/icons' }
+    - { name: 'noobslab-themes', url: 'ppa:noobslab/themes' }
     - { name: 'numix', url: 'ppa:numix/ppa' }
     - { name: 'system76', url: 'ppa:system76-dev/stable' }
     - { name: 'vivaldi', url: 'deb http://repo.vivaldi.com/stable/deb/ stable main' }
@@ -48,6 +52,8 @@ repos:
     # - { name: 'hipchat4', url: 'deb https://atlassian.artifactoryonline.com/atlassian/hipchat-apt-client zesty main' }
     # - { name: 'kubuntu', url: 'ppa:kubuntu-ppa/backports' }
     - { name: 'libreoffice', url: 'ppa:libreoffice/ppa' }
+    - { name: 'noobslab-icons', url: 'ppa:noobslab/icons' }
+    - { name: 'noobslab-themes', url: 'ppa:noobslab/themes' }
     - { name: 'numix', url: 'ppa:numix/ppa' }
     - { name: 'system76', url: 'ppa:system76-dev/stable' }
     - { name: 'vivaldi', url: 'deb http://repo.vivaldi.com/stable/deb/ stable main' }
@@ -62,6 +68,8 @@ packages:
   common:
     - adapta-gtk-theme
     - apt-rdepends
+    - arc-theme
+    - arc-icons
     - atom
     - backintime-gnome
     - bleachbit
