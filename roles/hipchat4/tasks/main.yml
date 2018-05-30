@@ -24,10 +24,9 @@
 - name: install HipChat4 apt repo
   apt_repository:
     filename: "Hipchat4"
-    description: "Atlassian HipChat4"
-    baseurl: "deb https://atlassian.artifactoryonline.com/atlassian/hipchat-apt-client {{ ansible_distribution_release }} main"  
-    enabled: true  
-    gpgcheck: false
+    repo: "deb https://atlassian.artifactoryonline.com/atlassian/hipchat-apt-client {{ ansible_distribution_release }} main"  
+    state: present
+    validate_certs: false
   become: yes
   become_user: root
   when: "ansible_distribution == 'Ubuntu'"
