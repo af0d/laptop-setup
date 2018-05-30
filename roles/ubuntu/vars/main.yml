@@ -5,12 +5,16 @@ repos:
   xenial:
     - { name: 'adapta', url: 'ppa:tista/adapta' }
     - { name: 'ansible', url: 'ppa:ansible/ansible' }
+    - { name: 'audacity', url: 'ppa:ubuntuhandbook1/audacity' }
     - { name: 'chkservice', url: 'ppa:linuxenko/chkservice' }
     - { name: 'dvdstyler', url: 'ppa:ubuntuhandbook1/dvdstyler' }
 #    - { name: 'cinnamon', url: 'ppa:embrosyn/cinnamon' }
     - { name: 'hipchat4', url: 'deb https://atlassian.artifactoryonline.com/atlassian/hipchat-apt-client {{ ansible_distribution_release }} main' }
     - { name: 'libreoffice', url: 'ppa:libreoffice/ppa' }
+    - { name: 'noobslab-icons', url: 'ppa:noobslab/icons' }
+    - { name: 'noobslab-themes', url: 'ppa:noobslab/themes' }
     - { name: 'numix', url: 'ppa:numix/ppa' }
+    - { name: 'obs-studio', url: 'ppa:obsproject/obs-studio' }
     - { name: 'system76', url: 'ppa:system76-dev/stable' }
     - { name: 'vivaldi', url: 'deb http://repo.vivaldi.com/stable/deb/ stable main' }
     - { name: 'webupd8', url: 'ppa:nilarimogard/webupd8' }
@@ -22,12 +26,15 @@ repos:
   zesty:
     - { name: 'adapta', url: 'ppa:tista/adapta' }
     - { name: 'ansible', url: 'ppa:ansible/ansible' }
+    - { name: 'audacity', url: 'ppa:ubuntuhandbook1/audacity' }
     - { name: 'chkservice', url: 'ppa:linuxenko/chkservice' }
     - { name: 'darktable', url: 'ppa:pmjdebruijn/darktable-release' }
     - { name: 'dvdstyler', url: 'ppa:ubuntuhandbook1/dvdstyler' }
     # - { name: 'cinnamon', url: 'ppa:embrosyn/cinnamon' }
     # - { name: 'hipchat4', url: 'deb https://atlassian.artifactoryonline.com/atlassian/hipchat-apt-client {{ ansible_distribution_release }} main' }
     - { name: 'libreoffice', url: 'ppa:libreoffice/ppa' }
+    - { name: 'noobslab-icons', url: 'ppa:noobslab/icons' }
+    - { name: 'noobslab-themes', url: 'ppa:noobslab/themes' }
     - { name: 'numix', url: 'ppa:numix/ppa' }
     - { name: 'system76', url: 'ppa:system76-dev/stable' }
     - { name: 'vivaldi', url: 'deb http://repo.vivaldi.com/stable/deb/ stable main' }
@@ -40,7 +47,7 @@ repos:
   artful:
     - { name: 'adapta', url: 'ppa:tista/adapta' }
     - { name: 'ansible', url: 'ppa:ansible/ansible' }
-#    - { name: 'chkservice', url: 'ppa:linuxenko/chkservice' }
+    - { name: 'audacity', url: 'ppa:ubuntuhandbook1/audacity' }
     - { name: 'darktable', url: 'ppa:pmjdebruijn/darktable-release' }
     - { name: 'dvdstyler', url: 'ppa:ubuntuhandbook1/dvdstyler' }
     # - { name: 'cinnamon', url: 'ppa:embrosyn/cinnamon' }
@@ -49,7 +56,10 @@ repos:
     - { name: 'kubuntu', url: 'ppa:kubuntu-ppa/backports' }
     - { name: 'libreoffice', url: 'ppa:libreoffice/ppa' }
     - { name: 'linuxuprising', url: 'ppa:linuxuprising/java' }
+    - { name: 'noobslab-icons', url: 'ppa:noobslab/icons' }
+    - { name: 'noobslab-themes', url: 'ppa:noobslab/themes' }
     - { name: 'numix', url: 'ppa:numix/ppa' }
+    - { name: 'obs-studio', url: 'ppa:obsproject/obs-studio' }
     - { name: 'system76', url: 'ppa:system76-dev/stable' }
     - { name: 'vivaldi', url: 'deb http://repo.vivaldi.com/stable/deb/ stable main' }
     - { name: 'webupd8', url: 'ppa:nilarimogard/webupd8' }
@@ -61,6 +71,7 @@ repos:
   bionic:
     - { name: 'adapta', url: 'ppa:tista/adapta' }
     - { name: 'ansible', url: 'ppa:ansible/ansible' }
+    - { name: 'audacity', url: 'ppa:ubuntuhandbook1/audacity' }
     - { name: 'chkservice', url: 'ppa:linuxenko/chkservice' }
     - { name: 'darktable', url: 'ppa:pmjdebruijn/darktable-release' }
     - { name: 'dvdstyler', url: 'ppa:ubuntuhandbook1/dvdstyler' }
@@ -70,7 +81,10 @@ repos:
     - { name: 'kubuntu', url: 'ppa:kubuntu-ppa/backports' }
     - { name: 'libreoffice', url: 'ppa:libreoffice/ppa' }
     - { name: 'linuxuprising', url: 'ppa:linuxuprising/java' }
+    - { name: 'noobslab-icons', url: 'ppa:noobslab/icons' }
+    - { name: 'noobslab-themes', url: 'ppa:noobslab/themes' }
     - { name: 'numix', url: 'ppa:numix/ppa' }
+    - { name: 'obs-studio', url: 'ppa:obsproject/obs-studio' }
     - { name: 'system76', url: 'ppa:system76-dev/stable' }
     - { name: 'vivaldi', url: 'deb http://repo.vivaldi.com/stable/deb/ stable main' }
     - { name: 'webupd8', url: 'ppa:nilarimogard/webupd8' }
@@ -84,7 +98,10 @@ packages:
   common:
     - adapta-gtk-theme
     - apt-rdepends
+    - arc-theme
+    - arc-icons
     - atom
+    - audacity
     - backintime-gnome
     - bleachbit
     - build-essential
@@ -150,6 +167,7 @@ packages:
     - oracle-java8-set-default
     - oracle-java8-unlimited-jce-policy
     - oracle-java9-installer
+    - oracle-java9-unlimited-jce-policy
     - p7zip-full
     - postgresql
     - postgresql-client
@@ -179,6 +197,7 @@ packages:
     - gpointing-device-settings
   #   - 'playonlinux'
   #   - 'typecatcher'
+    - obs-studio
     - oomox
     - virtualbox-5.1
   zesty: 
@@ -193,12 +212,14 @@ packages:
     - kubuntu-full
     - materia-gtk-theme
     - materia-ubuntu-gtk-theme
-    - virtualbox
+    - obs-studio
     # - oomox
+    - virtualbox
   bionic: 
     - alien
     - kubuntu-full
     - materia-gtk-theme
     - materia-ubuntu-gtk-theme
+    - obs-studio
+    - oomox
     - virtualbox
-    # - oomox
