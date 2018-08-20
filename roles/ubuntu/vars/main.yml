@@ -85,6 +85,7 @@ repos:
     - { name: 'numix', url: 'ppa:numix/ppa' }
     - { name: 'obs-studio', url: 'ppa:obsproject/obs-studio' }
     - { name: 'system76', url: 'ppa:system76-dev/stable' }
+    - { name: 'timeshift', url: 'ppa:teejee2008/ppa' }
     - { name: 'vivaldi', url: 'deb http://repo.vivaldi.com/stable/deb/ stable main' }
     - { name: 'webupd8', url: 'ppa:nilarimogard/webupd8' }
     - { name: 'webupd8team-atom', url: 'ppa:webupd8team/atom' }
@@ -217,4 +218,5 @@ packages:
     - kubuntu-full
     - obs-studio
     - oomox
+    - timeshift
     - virtualbox
