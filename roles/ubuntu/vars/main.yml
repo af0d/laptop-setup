@@ -166,8 +166,6 @@ packages:
     - oracle-java8-installer
     - oracle-java8-set-default
     - oracle-java8-unlimited-jce-policy
-    - oracle-java9-installer
-    - oracle-java9-unlimited-jce-policy
     - p7zip-full
     - postgresql
     - postgresql-client

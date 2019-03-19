@@ -12,13 +12,6 @@
   become: true
   become_user: root
 
-#- name: add APT key for HipChat
-#  apt_key:
-#    url: 'https://atlassian.artifactoryonline.com/atlassian/api/gpg/key/public'
-#    state: present
-#  become: true
-#  become_user: root
-
 - name: add APT key for Google Chrome
   apt_key:
     url: 'https://dl-ssl.google.com/linux/linux_signing_key.pub'
@@ -44,15 +37,6 @@
   apt_key:
     url: 'https://www.virtualbox.org/download/oracle_vbox.asc'
     state: present
-  become: true
-  become_user: root
-
-- name: add config for Oracle Java contributor agreement
-  debconf:
-    name: oracle-java8-installer
-    question: shared/accepted-oracle-license-v1-1
-    vtype: boolean
-    value: true
   become: true
   become_user: root
 
@@ -98,29 +82,29 @@
   become: true
   become_user: root
 
-- name: make Gnome/Git keyring integration helper
+- name: configure Gnome/Git keyring integration helper
   command: git config --global credential.helper /usr/share/doc/git/contrib/credential/gnome-keyring/git-credential-gnome-keyring
 
-- name: update GRUB to disable intel_pstate driver
-  replace:
-    dest: /etc/default/grub
-    regexp: 'GRUB_CMDLINE_LINUX_DEFAULT="(.*)"'
-    replace: 'GRUB_CMDLINE_LINUX_DEFAULT="intel_pstate=disable \1"'
-  become: true
-  become_user: root
+#- name: update GRUB to disable intel_pstate driver
+#  replace:
+#    dest: /etc/default/grub
+#    regexp: 'GRUB_CMDLINE_LINUX_DEFAULT="(.*)"'
+#    replace: 'GRUB_CMDLINE_LINUX_DEFAULT="intel_pstate=disable \1"'
+#  become: true
+#  become_user: root
 
-- name: update grub
-  command: update-grub
-  become: true
-  become_user: root
+#- name: update grub
+#  command: update-grub
+#  become: true
+#  become_user: root
 
-- name: add modules to load at boot time
-  lineinfile:
-    dest: /etc/modules
-    line: "{{ item }}"
-    state: present
-  with_items:
-    - "cpufreq_ondemand"
-    - "cpufreq_userspace"
-  become: true
-  become_user: root
+#- name: add modules to load at boot time
+#  lineinfile:
+#    dest: /etc/modules
+#    line: "{{ item }}"
+#    state: present
+#  with_items:
+#    - "cpufreq_ondemand"
+#    - "cpufreq_userspace"
+#  become: true
+#  become_user: root
