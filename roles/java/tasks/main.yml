@@ -1,0 +1,6 @@
+---
+
+- name: download OpenJ9 JDK
+  get_url:
+    url: https://github.com/AdoptOpenJDK/openjdk11-binaries/releases/download/jdk-11.0.2%2B9_openj9-0.12.1/OpenJDK11U-jdk_x64_linux_openj9_11.0.2_9_openj9-0.12.1_openj9-0.12.1.tar.gz
+    dest: /tmp/
