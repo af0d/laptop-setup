@@ -21,11 +21,11 @@
 - name: download nexus
   get_url:
     url: http://download.sonatype.com/nexus/3/latest-unix.tar.gz
-    dest: "/tmp/nexus-{{ nexus_version }}-unix.tar.gz"
+    dest: "{{ ansible_env.HOME }}/Downloads/nexus-{{ nexus_version }}-unix.tar.gz"
 
 - name: unpack nexus
   unarchive:
-    src: "/tmp/nexus-{{ nexus_version }}-unix.tar.gz"
+    src: "{{ ansible_env.HOME }}/Downloads/nexus-{{ nexus_version }}-unix.tar.gz"
     dest: /opt/
     owner: nexus
     group: nexus

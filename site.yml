@@ -3,9 +3,9 @@
   roles:
     - local
 
-- hosts: fedora
-  roles:
-    - fedora
+#- hosts: fedora
+#  roles:
+#    - fedora
 
 - hosts: ubuntu
   roles:
@@ -13,8 +13,7 @@
 
 - hosts: local
   roles:
-    - dropbox
-#    - hipchat4
+    - java
+#    - dropbox
     - maven
     - nexus
-    - postman

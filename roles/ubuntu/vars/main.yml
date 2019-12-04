@@ -72,7 +72,6 @@ repos:
     - { name: 'adapta', url: 'ppa:tista/adapta' }
     - { name: 'ansible', url: 'ppa:ansible/ansible' }
     - { name: 'audacity', url: 'ppa:ubuntuhandbook1/audacity' }
-    - { name: 'chkservice', url: 'ppa:linuxenko/chkservice' }
     - { name: 'darktable', url: 'ppa:pmjdebruijn/darktable-release' }
     - { name: 'dvdstyler', url: 'ppa:ubuntuhandbook1/dvdstyler' }
     # - { name: 'cinnamon', url: 'ppa:embrosyn/cinnamon' }
@@ -93,14 +92,29 @@ repos:
     - { name: 'google-chrome', url: 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' }
 #    { name: 'gnome3-staging', url: 'ppa:gnome3-team/gnome3-staging' }
 #    { name: 'gnome3', url: 'ppa:gnome3-team/gnome3' }
+  disco:
+#    - { name: 'adapta', url: 'ppa:tista/adapta' }
+#    - { name: 'ansible', url: 'ppa:ansible/ansible' }
+#    - { name: 'audacity', url: 'ppa:ubuntuhandbook1/audacity' }
+#    - { name: 'darktable', url: 'ppa:pmjdebruijn/darktable-release' }
+#    - { name: 'dvdstyler', url: 'ppa:ubuntuhandbook1/dvdstyler' }
+    - { name: 'kubuntu', url: 'ppa:kubuntu-ppa/backports' }
+    - { name: 'libreoffice', url: 'ppa:libreoffice/ppa' }
+#    - { name: 'noobslab-icons', url: 'ppa:noobslab/icons' }
+#    - { name: 'noobslab-themes', url: 'ppa:noobslab/themes' }
+    - { name: 'obs-studio', url: 'ppa:obsproject/obs-studio' }
+    - { name: 'system76', url: 'ppa:system76-dev/stable' }
+#    - { name: 'webupd8', url: 'ppa:nilarimogard/webupd8' }
+#    - { name: 'webupd8team-atom', url: 'ppa:webupd8team/atom' }
+  eoan:
+    - { name: 'ansible', url: 'ppa:ansible/ansible' }
+    - { name: 'system76', url: 'ppa:system76-dev/stable' }
+    - { name: 'darktable', url: 'ppa:pmjdebruijn/darktable-release' }
+    - { name: 'dvdstyler', url: 'ppa:ubuntuhandbook1/dvdstyler' }
 
 packages:
   common:
-    - adapta-gtk-theme
     - apt-rdepends
-    - arc-theme
-    - arc-icons
-    - atom
     - audacity
     - backintime-gnome
     - bleachbit
@@ -112,7 +126,6 @@ packages:
     - darktable
     - debconf-utils
     - dia
-    - dvdstyler
     - emacs
     - evolution
     - evolution-ews
@@ -120,11 +133,8 @@ packages:
     - evolution-plugins
     - evolution-plugins-experimental
     - evolution-rss
-    - faenza-icon-theme
     - ffmpeg
     - filezilla
-    - fldigi
-    - flrig
     - font-manager
     - fonts-cantarell
     - fonts-century-catalogue
@@ -132,15 +142,10 @@ packages:
     - fonts-crosextra-carlito
     - fonts-gfs*
     - fonts-sil-gentium*
-    - gigolo
     - git
     - git-core
     - git-doc
     - glabels
-    - gnome-backgrounds
-    - gnome-themes-standard
-    - gnome-tweak-tool
-    - google-chrome-stable
     - gstreamer1.0-plugins-bad
     - gstreamer1.0-plugins-good
     - gstreamer1.0-plugins-ugly
@@ -151,34 +156,17 @@ packages:
     - libreoffice
     - libgnome-keyring-dev
     - libxss1
-    - mate-core
-    - mate-desktop-environment
-    - mate-icon-theme-faenza
     - meld
     - multitail
-    - numix-gtk-theme
-    - numix-icon-theme
-    - numix-icon-theme-bevel
-    - openjdk-8-doc
-#    - openjdk-8-jdk
-#    - openjdk-9-jdk
     - openssh-server
-    - oracle-java8-installer
-    - oracle-java8-set-default
-    - oracle-java8-unlimited-jce-policy
-    - oracle-java9-installer
-    - oracle-java9-unlimited-jce-policy
     - p7zip-full
-    - postgresql
-    - postgresql-client
-    - postgresql-contrib
+    - plank
     - ppa-purge
     - psgml
     - pytagsfs
     - python-dev
     - python-mode
     - scribus
-    - splat
     - synaptic
     - system76-driver
     - thunderbird
@@ -209,17 +197,17 @@ packages:
     - virtualbox-5.1
   artful: 
     - alien
-    - kubuntu-full
-    - materia-gtk-theme
-    - materia-ubuntu-gtk-theme
     - obs-studio
     # - oomox
     - virtualbox
   bionic: 
     - alien
-    - kubuntu-full
-    - materia-gtk-theme
-    - materia-ubuntu-gtk-theme
     - obs-studio
-    - oomox
+    - virtualbox
+  disco:
+    - net-tool
+    - obs-studio
+    - virtualbox
+  eoan:
+    - net-tool
     - virtualbox

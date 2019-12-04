@@ -1,4 +1,4 @@
 ---
 # /roles/nexus/vars/main.yml
 
-nexus_version: "3.4.0-02"
+nexus_version: "3.16.1-02"
