@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Terminal (Root)
+Name[en_US]=Terminal (Root)
+Exec=gnome-terminal --hide-menubar --window-with-profile=Root --class=root
+Terminal=false
+Type=Application
+StartupNotify=true
+Icon=utilities-terminal
+OnlyShowIn=GNOME;Unity;KDE;Cinnamon
+GenericName[en_US]=Root Shell

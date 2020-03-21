@@ -2,6 +2,5 @@
 - hosts: local
   roles:
     - java
-    - maven
-    - nexus
-
+#    - maven
+#    - nexus

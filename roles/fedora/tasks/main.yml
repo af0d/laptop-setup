@@ -1,12 +1,5 @@
 ---
-- name: add google chrome yum repo
-  yum_repository:
-    name: "google-chrome"
-    description: "Google Chrome repository"
-    baseurl: "http://dl.google.com/linux/chrome/rpm/stable/$basearch"
-    gpgkey: "https://dl-ssl.google.com/linux/linux_signing_key.pub"
-  become: yes
-  become_user: root
+# file: roles/fedora/tasks/main.yml
 
 - name: add Vivaldi web browser yum repo
   yum_repository:
@@ -17,20 +10,26 @@
   become: yes
   become_user: root
 
-- name: install the rpmfusion repo packages
-  dnf:
-    name: "{{ item }}"
-    state: present
-  with_items:
-    - 'http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ ansible_distribution_version }}.noarch.rpm'
-    - 'http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ ansible_distribution_version }}.noarch.rpm'
+- name: add Brave web browser yum repo
+  yum_repository:
+    name: 'brave'
+    description: 'Brave browser repository'
+    baseurl: 'https://brave-browser-rpm-release.s3.brave.com/x86_64/'
+    gpgkey: 'https://brave-browser-rpm-release.s3.brave.com/brave-core.asc'
   become: yes
   become_user: root
 
-- name: add COPR repository for hugo
-  command: "dnf copr enable daftaupe/hugo"
-  args:
-    creates: "/etc/yum.repos.d/_copr_daftaupe-hugo.repo"
+- name: install the rpmfusion repo packages
+  dnf:
+    name: 'http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ ansible_distribution_version }}.noarch.rpm'
+    state: present
+  become: yes
+  become_user: root
+
+- name: install the rpmfusion repo packages
+  dnf:
+    name: 'http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ ansible_distribution_version }}.noarch.rpm'
+    state: present
   become: yes
   become_user: root
 
@@ -41,61 +40,12 @@
   become: yes
   become_user: root
 
-- name: Install new packages for Fedora
+- name: install common packages
   dnf:
-    name: "{{ item }}"
+    name: "{{ packages['common'] }}"
     state: latest
-  become: yes
+  become: true
   become_user: root
-  with_items:
-    - 'multitail'
-    - 'emacs'
-    - 'emacs-yaml-mode'
-    - 'google-chrome-stable'
-    - 'vim'
-    - 'tree'
-    - 'gnome-tweak-tool'
-    - 'sil-andika-fonts'
-    - 'sil-charis-fonts'
-    - 'sil-gentium-fonts'
-    - 'sil-gentium-alt-fonts'
-    - 'sil-gentium-basic-book-fonts'
-    - 'gfs-*-fonts'
-    - 'NetworkManager-openconnect-gnome'
-    - 'NetworkManager-pptp-gnome'
-    - 'NetworkManager-vpnc-gnome'
-    - 'evolution'
-    - 'evolution-ews'
-    - 'hugo'
-    - 'inkscape'
-    - 'inkscape-docs'
-    - 'inkscape-view'
-    - 'ImageMagick'
-    - 'ImageMagick-doc'
-    - 'meld'
-    - 'fuse-sshfs'
-    - 'gstreamer-ffmpeg'
-    - 'gstreamer-plugins-bad'
-    - 'gstreamer-plugins-ugly'
-    - 'gstreamer1-libav'
-    - 'gstreamer1-plugins-bad-nonfree'
-    - 'gstreamer1-plugins-ugly'
-    - 'gstreamer1-plugins-ugly-free'
-    - 'vivaldi-stable'
-    - 'curl'
-    - 'cabextract'
-    - 'xorg-x11-font-utils'
-    - 'fontconfig'
-    - 'caja-dropbox'
-    - 'fldigi'
-    - 'flrig'
-    - 'git'
-    - 'git-extras'
-    - 'postgresql'
-    - 'postgresql-contrib'
-    - 'postgresql-docs'
-    - 'postgresql-server'
-    - 'libgnome-keyring-dev'
 
 - name: install msttcorefonts
   dnf:
@@ -105,9 +55,4 @@
   become_user: root
 
 - name: make Gnome/Git keyring integration helper
-  command: make --directory=/usr/share/doc/git/contrib/credential/gnome-keyring
-  become: true
-  become_user: root
-
-- name: make Gnome/Git keyring integration helper
-  command: git config --global credential.helper /usr/share/doc/git/contrib/credential/gnome-keyring/git-credential-gnome-keyring
+  command: git config --global credential.helper /usr/libexec/git-core/git-credential-gnome-keyring

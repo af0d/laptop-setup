@@ -1,0 +1,19 @@
+[Desktop Entry]
+Comment[en_US]=Eclipse
+Comment=Eclipse
+Exec=/opt/eclipse/jee-2019-09/eclipse/eclipse
+GenericName[en_US]=
+GenericName=
+Icon=/usr/share/icons/eclipse.svg
+MimeType=
+Name=Eclipse
+OnlyShowIn=GNOME;Unity;KDE;Mate
+Path=
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+Type=Application
+X-DBUS-ServiceName=
+X-DBUS-StartupType=
+X-KDE-SubstituteUID=false
+X-KDE-Username=

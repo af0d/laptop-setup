@@ -128,17 +128,32 @@
   become: true
   become_user: root
 
-#- name: configure pam limits
-#  pam_limit:
-#    domain: '*'
-#    limit_type: "{{ item.type }}"
-#    limit_item: "{{ item.name }}"
-#    value: "{{ item.value }}"
-#  with_items:
-#    - { name: 'nofile', value: '8192', type: 'hard' }
-#    - { name: 'nofile', value: '8192', type: 'soft' }
-##    - { name: 'nproc', value: '63500', type: 'hard' }
-##    - { name: 'nproc', value: '63500', type: 'soft' }
-##  become: true
-##  become_user: root
+- name: Add Eclipse application launcher
+  copy:
+    src: files/Eclipse.desktop
+    dest: /usr/share/applications/Eclipse.desktop
+    owner: root
+    group: root
+    mode: 0555
+  become: true
+  become_user: root
 
+- name: Add Eclipse icon
+  copy:
+    src: files/eclipse.svg
+    dest: /usr/share/icons/eclipse.svg
+    owner: root
+    group: root
+    mode: 0555
+  become: true
+  become_user: root
+
+- name: Add Root Terminal application launcher
+  copy:
+    src: files/Terminal-Root.desktop
+    dest: /usr/share/applications/
+    owner: root
+    group: root
+    mode: 0555
+  become: true
+  become_user: root

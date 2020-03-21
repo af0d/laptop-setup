@@ -108,9 +108,9 @@ repos:
 #    - { name: 'webupd8team-atom', url: 'ppa:webupd8team/atom' }
   eoan:
     - { name: 'ansible', url: 'ppa:ansible/ansible' }
-    - { name: 'system76', url: 'ppa:system76-dev/stable' }
-    - { name: 'darktable', url: 'ppa:pmjdebruijn/darktable-release' }
-    - { name: 'dvdstyler', url: 'ppa:ubuntuhandbook1/dvdstyler' }
+#    - { name: 'system76', url: 'ppa:system76-dev/stable' }
+#    - { name: 'darktable', url: 'ppa:pmjdebruijn/darktable-release' }
+#    - { name: 'dvdstyler', url: 'ppa:ubuntuhandbook1/dvdstyler' }
 
 packages:
   common:
@@ -154,7 +154,7 @@ packages:
     - inkscape
     - iotop
     - libreoffice
-    - libgnome-keyring-dev
+#    - libgnome-keyring-dev
     - libxss1
     - meld
     - multitail
@@ -163,7 +163,7 @@ packages:
     - plank
     - ppa-purge
     - psgml
-    - pytagsfs
+#    - pytagsfs
     - python-dev
     - python-mode
     - scribus
@@ -209,5 +209,8 @@ packages:
     - obs-studio
     - virtualbox
   eoan:
-    - net-tool
+    - cinnamon-desktop-environment
+    - mate-desktop-environment
+    - mate-desktop-environment-extras
+    - mate-applet-appmenu
     - virtualbox
