@@ -85,6 +85,7 @@ repos:
     - { name: 'numix', url: 'ppa:numix/ppa' }
     - { name: 'obs-studio', url: 'ppa:obsproject/obs-studio' }
     - { name: 'system76', url: 'ppa:system76-dev/stable' }
+    - { name: 'timeshift', url: 'ppa:teejee2008/ppa' }
     - { name: 'vivaldi', url: 'deb http://repo.vivaldi.com/stable/deb/ stable main' }
     - { name: 'webupd8', url: 'ppa:nilarimogard/webupd8' }
     - { name: 'webupd8team-atom', url: 'ppa:webupd8team/atom' }
@@ -159,6 +160,12 @@ packages:
     - meld
     - multitail
     - openssh-server
+<<<<<<< HEAD
+=======
+    - oracle-java8-installer
+    - oracle-java8-set-default
+    - oracle-java8-unlimited-jce-policy
+>>>>>>> d6dc252f5a24f5e9fa83cd8f40b306b76b99c17b
     - p7zip-full
     - plank
     - ppa-purge
@@ -210,7 +217,7 @@ packages:
     - virtualbox
   eoan:
     - cinnamon-desktop-environment
-    - mate-desktop-environment
-    - mate-desktop-environment-extras
-    - mate-applet-appmenu
+#    - mate-desktop-environment
+#    - mate-desktop-environment-extras
+#    - mate-applet-appmenu
     - virtualbox
