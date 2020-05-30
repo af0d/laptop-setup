@@ -7,6 +7,8 @@
     state: present
   become: true
   become_user: root
+  tags:
+    - nexus
 
 - name: create nexus user
   user:
@@ -17,21 +19,28 @@
     state: present
   become: true
   become_user: root
+  tags:
+    - nexus
 
 - name: download nexus
   get_url:
     url: http://download.sonatype.com/nexus/3/latest-unix.tar.gz
-    dest: "{{ ansible_env.HOME }}/Downloads/nexus-{{ nexus_version }}-unix.tar.gz"
+    dest: "{{ ansible_env.HOME }}/Downloads/latest-unix.tar.gz"
+  tags:
+    - nexus
 
 - name: unpack nexus
   unarchive:
-    src: "{{ ansible_env.HOME }}/Downloads/nexus-{{ nexus_version }}-unix.tar.gz"
-    dest: /opt/
+    src: "{{ ansible_env.HOME }}/Downloads/latest-unix.tar.gz"
+    dest: "/opt/"
+    #dest: "/opt/nexus-{{ nexus_version }}"
     owner: nexus
     group: nexus
     remote_src: True
   become: true
   become_user: root
+  tags:
+    - nexus
 
 - name: symlink nexus
   file:
@@ -42,6 +51,8 @@
     group: nexus
   become: true
   become_user: root
+  tags:
+    - nexus
 
 - name: copy nexus.rc file
   copy:
@@ -52,6 +63,8 @@
     mode: 0644
   become: true
   become_user: root
+  tags:
+    - nexus
 
 - name: set ownership of "/opt/nexus-{{ nexus_version }}"
   file:
@@ -61,6 +74,8 @@
     recurse: yes
   become: true
   become_user: root
+  tags:
+    - nexus
 
 - name: set ownership of "/opt/sonatype-work"
   file:
@@ -70,6 +85,8 @@
     recurse: yes
   become: true
   become_user: root
+  tags:
+    - nexus
 
 - name: copy nexus env file
   copy:
@@ -80,6 +97,8 @@
     mode: 0644
   become: true
   become_user: root
+  tags:
+    - nexus
 
 - name: copy nexus service unit
   copy:
@@ -90,6 +109,8 @@
     mode: 0644
   become: true
   become_user: root
+  tags:
+    - nexus
 
 #############################
 # only with Ansible 2.2+
@@ -102,3 +123,6 @@
     daemon-reload: yes
   become: true
   become_user: root
+  tags:
+    - nexus
+

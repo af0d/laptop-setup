@@ -9,6 +9,9 @@
     update_cache: no
   with_items:
     - "{{ repos[ansible_distribution_release] }}"
+  when: 
+    - repos[ansible_distribution_release] != None
+    - repos[ansible_distribution_release] | length > 0
   become: true
   become_user: root
 
@@ -33,6 +36,9 @@
     name: "{{ packages[ansible_distribution_release] }}"
     state: latest
     allow_unauthenticated: yes
+  when: 
+    - packages[ansible_distribution_release] != None
+    - packages[ansible_distribution_release] | length > 0
   become: true
   become_user: root
 
@@ -54,10 +60,11 @@
 #  become: true
 #  become_user: root
 
-- name: make Gnome/Git keyring integration helper
-  command: make --directory=/usr/share/doc/git/contrib/credential/gnome-keyring
-  become: true
-  become_user: root
+#- name: make Gnome/Git keyring integration helper
+#  command: make --directory=/usr/share/doc/git/contrib/credential/gnome-keyring
+#  become: true
+#  become_user: root
 
-- name: make Gnome/Git keyring integration helper
-  command: git config --global credential.helper /usr/share/doc/git/contrib/credential/gnome-keyring/git-credential-gnome-keyring
+#- name: make Gnome/Git keyring integration helper
+#  command: git config --global credential.helper /usr/share/doc/git/contrib/credential/gnome-keyring/git-credential-gnome-keyring
+

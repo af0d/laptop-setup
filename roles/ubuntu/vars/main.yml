@@ -109,14 +109,19 @@ repos:
   eoan:
     - { name: 'ansible', url: 'ppa:ansible/ansible' }
     - { name: 'system76', url: 'ppa:system76-dev/stable' }
-    - { name: 'darktable', url: 'ppa:pmjdebruijn/darktable-release' }
-    - { name: 'dvdstyler', url: 'ppa:ubuntuhandbook1/dvdstyler' }
+#    - { name: 'darktable', url: 'ppa:pmjdebruijn/darktable-release' }
+#    - { name: 'dvdstyler', url: 'ppa:ubuntuhandbook1/dvdstyler' }
+  focal:
+#    - { name: 'ansible', url: 'ppa:ansible/ansible' }
+#    - { name: 'system76', url: 'ppa:system76-dev/stable' }
+#    - { name: 'darktable', url: 'ppa:pmjdebruijn/darktable-release' }
+#    - { name: 'dvdstyler', url: 'ppa:ubuntuhandbook1/dvdstyler' }
 
 packages:
   common:
     - apt-rdepends
     - audacity
-    - backintime-gnome
+#    - backintime-gnome
     - bleachbit
     - build-essential
     - cheese
@@ -154,7 +159,6 @@ packages:
     - inkscape
     - iotop
     - libreoffice
-    - libgnome-keyring-dev
     - libxss1
     - meld
     - multitail
@@ -163,7 +167,6 @@ packages:
     - plank
     - ppa-purge
     - psgml
-    - pytagsfs
     - python-dev
     - python-mode
     - scribus
@@ -183,6 +186,7 @@ packages:
     - fontconfig-infinality
     - fonts-droid
     - gpointing-device-settings
+    - libgnome-keyring-dev
   #   - 'playonlinux'
   #   - 'typecatcher'
     - obs-studio
@@ -193,21 +197,30 @@ packages:
     - alien
     - chkservice
     - gpointing-device-settings
+    - libgnome-keyring-dev
     - oomox
     - virtualbox-5.1
   artful: 
     - alien
     - obs-studio
+    - libgnome-keyring-dev
     # - oomox
     - virtualbox
   bionic: 
     - alien
+    - libgnome-keyring-dev
     - obs-studio
     - virtualbox
   disco:
     - net-tool
     - obs-studio
+    - libgnome-keyring-dev
     - virtualbox
   eoan:
-    - net-tool
+    - obs-studio
+    - typecatcher
+    - virtualbox
+  focal:
+    - obs-studio
+    - typecatcher
     - virtualbox
