@@ -1,5 +1,4 @@
 ---
-# file: roles/java/tasks/main.yml
 
 - name: download OpenJ9 JDK 14
   get_url:

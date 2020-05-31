@@ -68,3 +68,29 @@
 #- name: make Gnome/Git keyring integration helper
 #  command: git config --global credential.helper /usr/share/doc/git/contrib/credential/gnome-keyring/git-credential-gnome-keyring
 
+- name: configure Gnome/Git keyring integration helper
+  command: git config --global credential.helper /usr/share/doc/git/contrib/credential/gnome-keyring/git-credential-gnome-keyring
+
+#- name: update GRUB to disable intel_pstate driver
+#  replace:
+#    dest: /etc/default/grub
+#    regexp: 'GRUB_CMDLINE_LINUX_DEFAULT="(.*)"'
+#    replace: 'GRUB_CMDLINE_LINUX_DEFAULT="intel_pstate=disable \1"'
+#  become: true
+#  become_user: root
+
+#- name: update grub
+#  command: update-grub
+#  become: true
+#  become_user: root
+
+#- name: add modules to load at boot time
+#  lineinfile:
+#    dest: /etc/modules
+#    line: "{{ item }}"
+#    state: present
+#  with_items:
+#    - "cpufreq_ondemand"
+#    - "cpufreq_userspace"
+#  become: true
+#  become_user: root

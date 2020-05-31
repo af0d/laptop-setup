@@ -85,6 +85,7 @@ repos:
     - { name: 'numix', url: 'ppa:numix/ppa' }
     - { name: 'obs-studio', url: 'ppa:obsproject/obs-studio' }
     - { name: 'system76', url: 'ppa:system76-dev/stable' }
+    - { name: 'timeshift', url: 'ppa:teejee2008/ppa' }
     - { name: 'vivaldi', url: 'deb http://repo.vivaldi.com/stable/deb/ stable main' }
     - { name: 'webupd8', url: 'ppa:nilarimogard/webupd8' }
     - { name: 'webupd8team-atom', url: 'ppa:webupd8team/atom' }
@@ -159,14 +160,20 @@ packages:
     - inkscape
     - iotop
     - libreoffice
+#    - libgnome-keyring-dev
     - libxss1
     - meld
     - multitail
     - openssh-server
+    - openjdk-11-doc
+    - openjdk-11-jdk
+    - openjdk-8-doc
+    - openjdk-8-jdk
     - p7zip-full
     - plank
     - ppa-purge
     - psgml
+#    - pytagsfs
     - python-dev
     - python-mode
     - scribus
@@ -217,10 +224,17 @@ packages:
     - libgnome-keyring-dev
     - virtualbox
   eoan:
+<<<<<<< HEAD
     - obs-studio
     - typecatcher
     - virtualbox
   focal:
     - obs-studio
     - typecatcher
+=======
+    - cinnamon-desktop-environment
+#    - mate-desktop-environment
+#    - mate-desktop-environment-extras
+#    - mate-applet-appmenu
+>>>>>>> e4a83ac5f43b858f7a44228dedcaf6af4644fecb
     - virtualbox
