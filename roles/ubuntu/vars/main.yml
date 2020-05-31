@@ -224,17 +224,10 @@ packages:
     - libgnome-keyring-dev
     - virtualbox
   eoan:
-<<<<<<< HEAD
     - obs-studio
     - typecatcher
     - virtualbox
   focal:
     - obs-studio
     - typecatcher
-=======
-    - cinnamon-desktop-environment
-#    - mate-desktop-environment
-#    - mate-desktop-environment-extras
-#    - mate-applet-appmenu
->>>>>>> e4a83ac5f43b858f7a44228dedcaf6af4644fecb
     - virtualbox
